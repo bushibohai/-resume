@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>张海根 · 个人简历</title>
+  <meta name="description" content="张海根的个人简历网站，AI/运营/互联网方向，展示教育经历、实习经历、项目经历、技能证书与自我评价。">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #2563eb;
+      --primary-weak: #eaf2ff;
+      --border: #e2e8f0;
+      --card: #f8fafc;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --primary: #60a5fa;
+        --primary-weak: #12223f;
+        --border: #1f2a37;
+        --card: #111827;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 10px 24px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      font-size: 14px;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .hero {
+      padding: 40px 0 8px;
+    }
+    .hero-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 24px;
+    }
+    .hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 12px 0;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 18px 0;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .info-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+      overflow: hidden;
+    }
+    .info-item strong {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .section {
+      margin-top: 28px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 14px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--primary);
+      display: inline-block;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--bg);
+      padding: 16px;
+    }
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr;
+      gap: 16px;
+    }
+    .meta {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .title {
+      font-weight: 700;
+    }
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .hero-card .badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .hero-card .badge {
+      font-size: 14px;
+      padding: 10px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .badge {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--primary-weak);
+      color: var(--primary);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bullets {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
+    }
+    .bullets li { margin: 6px 0; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .footer {
+      margin: 36px 0 18px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+    
+    /* Dynamic Hero Section */
+    .hero-banner {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      /* 请将你的图片命名为 hero-bg.jpg 并放在 images 文件夹中 */
+      background: url('images/hero-bg.jpg') no-repeat center center/cover;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.3); /* Overlay for better text readability */
+      z-index: 1;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.6); 
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s;
+    }
+
+    .modal-content {
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 10% auto; 
+      padding: 30px;
+      border: 1px solid var(--border);
+      width: 90%; 
+      max-width: 400px;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      animation: slideDown 0.3s;
+    }
+
+    /* Minimal White Style for Email Modal */
+    .white-style {
+      background: #ffffff !important;
+      color: #333 !important;
+      border: 1px solid #eee !important;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
+    }
+
+    [data-theme="dark"] .white-style {
+      background: #1f2937 !important;
+      color: #f3f4f6 !important;
+      border: 1px solid #374151 !important;
+    }
+
+    .email-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border: 1px solid #e5e7eb;
+    }
+    
+    [data-theme="dark"] .email-container {
+      background: #374151;
+      border: 1px solid #4b5563;
+    }
+
+    #emailText {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .copy-btn:hover {
+      transform: scale(1.1);
+      color: var(--secondary);
+    }
+
+    .close-modal {
+      color: var(--muted);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover,
+    .close-modal:focus {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .qr-img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0} 
+      to {opacity: 1}
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-50px); opacity: 0;} 
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    .hero-banner h1, .hero-banner p, .social-icons {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-banner {
+      animation: zoomEffect 20s infinite alternate;
+    }
+    
+    @keyframes zoomEffect {
+      0% { background-size: 100% 100%; }
+      100% { background-size: 110% 110%; }
+    }
+    
+    .hero-banner h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 0 0 16px 0;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .hero-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-avatar:hover {
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    
+    .hero-banner p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin: 0 0 40px 0;
+      letter-spacing: 1px;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .social-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(4px);
+    }
+    
+    .social-btn:hover {
+      background: white;
+      color: #333;
+      transform: translateY(-3px);
+      border-color: white;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner h1 { font-size: 2.5rem; }
+      .hero-banner p { font-size: 1.1rem; }
+      .social-btn { width: 40px; height: 40px; font-size: 16px; }
+    }
+
+    @media (max-width: 860px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .row { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-banner" id="home">
+    <!-- 请将你的头像图片命名为 avatar.jpg 并放在项目文件夹中 -->
+    <img src="images/avatar.jpg" alt="Avatar" class="hero-avatar">
+    <h1>Meet Myself.</h1>
+    <p>Either stand out or get out.</p>
+    <div class="social-icons">
+        <!-- QQ -->
+        <a href="javascript:void(0)" class="social-btn" id="qqBtn" title="QQ: 1332542382">
+          <i class="fab fa-qq"></i>
+        </a>
+      <!-- WeChat -->
+        <a href="javascript:void(0)" class="social-btn" id="wechatBtn" title="WeChat: zzzzzhg1">
+          <i class="fab fa-weixin"></i>
+        </a>
+      <!-- Xiaohongshu (Using Book icon as substitute) -->
+      <a href="https://www.xiaohongshu.com/user/profile/662095d40000000003033534" class="social-btn" title="小红书：海哥AI不打烊" target="_blank">
+        <i class="fas fa-book-open"></i>
+      </a>
+      <!-- Zhihu -->
+      <a href="https://www.zhihu.com/people/bkxnxq" class="social-btn" title="知乎：海哥AI不打烊" target="_blank">
+        <i class="fab fa-zhihu"></i>
+      </a>
+      <!-- Email -->
+      <a href="javascript:void(0)" class="social-btn" id="emailBtn" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Modal for QR Code -->
+  <div id="qrModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>加我 QQ</h3>
+      <!-- 请将你的二维码图片保存为 qq-qr.png 并放在项目文件夹中 -->
+      <img src="images/qq-qr.png" alt="QQ QR Code" class="qr-img">
+      <p>扫一扫上面的二维码图案，加我QQ</p>
+    </div>
+  </div>
+
+  <!-- Modal for WeChat QR Code -->
+  <div id="wechatModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>加我微信</h3>
+      <!-- 请将你的微信二维码图片保存为 wechat-qr.png 并放在 images 文件夹中 -->
+      <img src="images/wechat-qr.png" alt="WeChat QR Code" class="qr-img">
+      <p>扫一扫上面的二维码图案，加我微信</p>
+    </div>
+  </div>
+
+  <!-- Modal for Email -->
+  <div id="emailModal" class="modal">
+    <div class="modal-content white-style">
+      <span class="close-modal">&times;</span>
+      <h3>联系邮箱</h3>
+      <div class="email-container">
+        <span id="emailText">1332542382@qq.com</span>
+        <button class="copy-btn" onclick="copyEmail()" title="复制邮箱">
+          <i class="fas fa-copy"></i>
+        </button>
+      </div>
+      <p id="copyMsg" style="height: 20px; color: #4ade80; font-size: 0.9em; margin-top: 10px; opacity: 0; transition: opacity 0.3s;">已复制到剪贴板！</p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Meet Myself.</div>
+      <nav class="nav-links">
+        <a href="#basic">基础信息</a>
+        <a href="#education">教育经历</a>
+        <a href="#intern">实习经历</a>
+        <a href="#projects">项目经历</a>
+        <a href="#skills">技能证书</a>
+        <a href="#about">自我评价</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div>
+          <h1 class="hero-title">张海根</h1>
+          <p class="hero-sub">AI / 运营 / 互联网</p>
+          <div class="info-grid">
+            <div class="info-item"><span>年龄</span><strong>20</strong></div>
+            <div class="info-item"><span>性别</span><strong>男</strong></div>
+            <div class="info-item"><span>学历</span><strong>本科</strong></div>
+            <div class="info-item"><span>手机</span><strong>18296926837</strong></div>
+            <div class="info-item"><span>邮箱</span><strong>1332542382@qq.com</strong></div>
+            <div class="info-item"><span>求职意向</span><strong>AI/运营/互联网</strong></div>
+          </div>
+          <div class="cta" style="margin-top:16px;">
+            <a class="btn primary" href="#projects">查看项目</a>
+            <a class="btn" href="#skills">技能清单</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="title">亮点速览</div>
+          <div class="badges">
+            <span class="badge">公众号0-1冷启动</span>
+            <span class="badge">知识库长期榜一</span>
+            <span class="badge">品牌策划精英奖</span>
+            <span class="badge">数据驱动增长</span>
+          </div>
+          <ul class="bullets">
+            <li>从<strong>0-1</strong>搭建微信公众号，粉丝破<strong>1000+</strong>，单篇最高阅读<strong>1.6w+</strong></li>
+            <li>腾讯 ima 垂直知识库运营，人数突破<strong>2000+</strong>，最高3日涨粉<strong>400+</strong></li>
+            <li>品牌策划竞赛精英奖，带队完成近<strong>3万</strong>字商业计划书</li>
+            <li>熟练使用多类AI工具，提升内容生产效率与质量</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="basic" class="section">
+      <h2 class="section-title"><span class="dot"></span> 基础个人信息</h2>
+      <div class="card grid-2">
+        <div>
+          <div class="title">联系方式</div>
+          <ul class="bullets">
+            <li>手机：18296926837</li>
+            <li>邮箱：1332542382@qq.com</li>
+          </ul>
+        </div>
+        <div>
+          <div class="title">求职方向</div>
+          <ul class="bullets">
+            <li>AI / 运营 / 互联网</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2 class="section-title"><span class="dot"></span> 教育经历</h2>
+      <div class="card list">
+        <div class="row">
+          <div>
+            <div class="title">长沙学院 · 本科 · 旅游管理</div>
+            <div class="meta">2023.09 - 2027.06</div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>学分绩点：</strong><strong>4.0/5.0</strong>，专业排名前<strong>10%</strong></li>
+              <li><strong>荣誉：</strong>全国商业精英挑战赛品牌策划竞赛精英奖（2025）</li>
+              <li><strong>荣誉：</strong>大学生创新创业项目入围国家级项目（2025）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intern" class="section">
+      <h2 class="section-title"><span class="dot"></span> 实习经历</h2>
+      <div class="card list">
+        <div class="row">
+          <div>
+            <div class="title">炫图人工智能科技有限公司 · 内容运营</div>
+            <div class="meta">2025.09 - 2025.12</div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>内容策划与运营：</strong>结合热点独立选题，制作视频并同步六大平台，累计产出近<strong>50</strong>条内容，单篇涨粉<strong>100+</strong></li>
+              <li><strong>账号日常维护：</strong>多平台运营，负责发布与互动及舆情监测，熟悉平台调性</li>
+              <li><strong>参与策略优化：</strong>参与每周复盘，分析数据表现，为迭代与创作提供建议</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title"><span class="dot"></span> 项目经历</h2>
+      <div class="card list">
+        <div class="row">
+          <div>
+            <div class="title">全国高校精英挑战赛品牌策划竞赛 · 组长 · 精英奖</div>
+            <div class="meta">2024.12 - 2025.06</div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>项目背景：</strong>以差异化与年轻化运营拓展品牌增量市场</li>
+              <li><strong>竞品与用户分析：</strong>用SWOT模型分析行业格局，构建用户画像</li>
+              <li><strong>产品定位与策划：</strong>重塑甜酒为三大场景化产品矩阵，推动视觉迭代</li>
+              <li><strong>最终成果：</strong>完成近<strong>3万</strong>字商业计划书与答辩PPT，获精英奖</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="title">AI科技自媒体运营 · 微信公众号「海哥AI不打烊」</div>
+            <div class="meta">2025.09 - 至今</div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong>账号运营：</strong>每周策划并撰写<strong>4-5</strong>篇原创推文，粉丝突破<strong>500+</strong>，后期破<strong>1000+</strong></li>
+              <li><strong>内容策划：</strong>负责选题、排版发布与数据复盘，类型涵盖科普、工具实战、学习分享</li>
+              <li><strong>对标拆解：</strong>建立选题库与对标库，拆解爆款并模仿学习</li>
+              <li><strong>收获成果：</strong>单篇最高阅读量<strong>1.6w+</strong>，单篇最高涨粉<strong>100+</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="title">AI知识库运营 · 腾讯 ima 知识库</div>
+            <div class="meta">2025.06 - 至今</div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li><strong></strong>知识库运营：</strong>从0-1搭建垂直领域AI学习知识库，持续收录优质资源</li>
+              <li><strong>差异化运营：</strong>分类整理与结构化呈现，提升曝光与留存</li>
+              <li><strong>收获成果：</strong>累计收集<strong>2000+</strong>内容，人数突破<strong>2000+</strong>，最高3日涨粉<strong>400+</strong>，长期霸榜搜索榜一</li>
+              <li><strong>平台认可：</strong>成为百度首批特邀知识库创建者，获得优先展示权</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title"><span class="dot"></span> 技能证书</h2>
+      <div class="card">
+        <div class="title">证书</div>
+        <div class="badges" style="margin-bottom:10px;">
+          <span class="badge">大学英语六级</span>
+          <span class="badge">影刀初级PRA技能证书</span>
+        </div>
+        <div class="title">技能</div>
+        <div class="badges">
+          <span class="badge">剪映</span>
+          <span class="badge">Midjourney</span>
+          <span class="badge">可画</span>
+          <span class="badge">AI写文案</span>
+          <span class="badge">AI选题</span>
+          <span class="badge">AI生图</span>
+          <span class="badge">AI数据分析</span>
+          <span class="badge">Python自动化</span>
+          <span class="badge">影刀PRA自动化</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title"><span class="dot"></span> 自我评价</h2>
+      <div class="card">
+        <ul class="bullets">
+          <li><strong>0-1全栈运营：</strong>具备公众号与知识库冷启动经验，执行力强</li>
+          <li><strong>产品化思维：</strong>以SOP与结构化将碎片信息转化为高价值内容产品</li>
+          <li><strong>数据驱动增长：</strong>敏锐的数据分析意识，善用复盘优化策略</li>
+          <li><strong>AI工具赋能：</strong>熟练掌握Prompt工程与多类AI工具，显著提升效率</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2025 张海根 · 个人简历网站
+    </footer>
+  </main>
+</body>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href').slice(1);
+      const el=document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+
+  // Modal Logic
+  function setupModal(btnId, modalId) {
+    const modal = document.getElementById(modalId);
+    const btn = document.getElementById(btnId);
+    const span = modal.querySelector(".close-modal");
+
+    if (btn && modal && span) {
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+    }
+  }
+
+  setupModal("qqBtn", "qrModal");
+  setupModal("wechatBtn", "wechatModal");
+  setupModal("emailBtn", "emailModal");
+
+  // Copy Email Function
+  function copyEmail() {
+    const emailText = document.getElementById("emailText").innerText;
+    navigator.clipboard.writeText(emailText).then(() => {
+      const msg = document.getElementById("copyMsg");
+      msg.style.opacity = "1";
+      setTimeout(() => {
+        msg.style.opacity = "0";
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+      alert('复制失败，请手动复制');
+    });
+  }
+
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = "none";
+    }
+  }
+</script>
+</html>
