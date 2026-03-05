@@ -5,769 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>张海根 · 个人简历</title>
   <meta name="description" content="张海根的个人简历网站，AI/运营/互联网方向，展示教育经历、实习经历、项目经历、技能证书与自我评价。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --primary: #2563eb;
-      --primary-weak: #eaf2ff;
-      --border: #e2e8f0;
-      --card: #f8fafc;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b1220;
-        --text: #e5e7eb;
-        --muted: #94a3b8;
-        --primary: #60a5fa;
-        --primary-weak: #12223f;
-        --border: #1f2a37;
-        --card: #111827;
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-    .nav {
-      position: sticky;
-      top: 0;
-      backdrop-filter: saturate(180%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom: 1px solid var(--border);
-      z-index: 50;
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 10px 24px;
-    }
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 18px;
-      font-size: 14px;
-    }
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.4px;
-    }
-    .hero {
-      padding: 40px 0 8px;
-    }
-    .hero-card {
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 16px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 24px;
-    }
-    .hero-title {
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0 0 12px 0;
-    }
-    .hero-sub {
-      font-size: 16px;
-      color: var(--muted);
-      margin: 0 0 18px 0;
-    }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-    .info-item {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 14px;
-      overflow: hidden;
-    }
-    .info-item strong {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .cta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--text);
-      background: var(--bg);
-    }
-    .btn.primary {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-    .section {
-      margin-top: 28px;
-    }
-    .section-title {
-      font-size: 18px;
-      font-weight: 800;
-      margin: 0 0 14px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .section-title .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--primary);
-      display: inline-block;
-    }
-    .card {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--bg);
-      padding: 16px;
-    }
-    .list {
-      display: grid;
-      gap: 12px;
-    }
-    .row {
-      display: grid;
-      grid-template-columns: 1.5fr 2fr;
-      gap: 16px;
-      align-items: start;
-    }
-    .meta {
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .title {
-      font-weight: 700;
-    }
-    
-    /* 实习经历标题样式 */
-    .intern-card .row .title {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-    
-    /* 确保左侧内容垂直居中 */
-    .intern-card .row > div:first-child {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 80px;
-    }
-    .badges {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .hero-card .badges {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .hero-card .badge {
-      font-size: 14px;
-      padding: 10px 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-    .badge {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--primary-weak);
-      color: var(--primary);
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .bullets {
-      margin: 8px 0 0 0;
-      padding-left: 18px;
-    }
-    .bullets li { margin: 6px 0; }
-    
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--bg);
-      padding: 20px;
-      margin-bottom: 16px;
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-      cursor: pointer;
-    }
-    
-    .project-card:hover {
-      transform: scale(1.03) translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    
-    .project-image-container {
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    
-    .project-image {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    
-    .project-card:hover .project-image {
-      transform: scale(1.08);
-    }
-    
-    .data-showcase {
-      background: linear-gradient(135deg, var(--primary-weak) 0%, var(--bg) 100%);
-      border-radius: 12px;
-      padding: 16px;
-      margin: 16px 0;
-      border: 1px solid var(--border);
-    }
-    
-    .data-showcase img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 12px;
-      padding: 8px 16px;
-      border-radius: 8px;
-      background: var(--primary-weak);
-      transition: all 0.3s ease;
-    }
-    
-    .project-link:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-    
-    .project-link i {
-      font-size: 14px;
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-    .footer {
-      margin: 48px 0 0;
-      padding: 40px 24px;
-      background: var(--card);
-      border-top: 1px solid var(--border);
-    }
-    
-    .footer-content {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .footer-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-    }
-    
-    .footer-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    
-    .footer-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    
-    .footer-quote {
-      font-size: 14px;
-      color: var(--muted);
-      font-style: italic;
-    }
-    
-    .certificate-badge {
-      position: relative;
-      cursor: pointer;
-    }
-    
-    .certificate-preview {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      max-width: 80vw;
-      max-height: 80vh;
-      width: auto;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      z-index: 1000;
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      pointer-events: none;
-      border: 3px solid var(--border);
-      background: var(--bg);
-    }
-    
-    .certificate-badge:hover .certificate-preview {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    
-    .certificate-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .certificate-badge:hover ~ .certificate-overlay,
-    .certificate-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    /* Data Highlights Section */
-    .data-highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    
-    .data-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .data-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    
-    .data-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-    }
-    
-    .data-card:hover::before {
-      transform: scaleX(1);
-    }
-    
-    .data-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 8px;
-      line-height: 1;
-      position: relative;
-    }
-    
-    .data-label {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    
-    /* Internship Cards */
-    .intern-card {
-      margin-bottom: 32px;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .intern-card.primary {
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid var(--border);
-      padding: 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-    
-    .intern-card.primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-    }
-    
-    .intern-card:not(.primary) {
-      padding: 0;
-    }
-    
-    .intern-card .card {
-      border-radius: 12px;
-    }
-    
-    .intern-card.primary .card {
-      border: none;
-      box-shadow: none;
-      background: transparent;
-    }
-    
-    /* Dynamic Hero Section */
-    .hero-banner {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      /* 请将你的图片命名为 hero-bg.jpg 并放在 images 文件夹中 */
-      background: url('images/hero-bg.jpg') no-repeat center center/cover;
-      padding: 20px;
-      overflow: hidden;
-    }
-
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.3); /* Overlay for better text readability */
-      z-index: 1;
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none; 
-      position: fixed; 
-      z-index: 1000; 
-      left: 0;
-      top: 0;
-      width: 100%; 
-      height: 100%; 
-      overflow: auto; 
-      background-color: rgba(0,0,0,0.6); 
-      backdrop-filter: blur(5px);
-      animation: fadeIn 0.3s;
-    }
-
-    .modal-content {
-      background-color: var(--bg);
-      color: var(--text);
-      margin: 10% auto; 
-      padding: 30px;
-      border: 1px solid var(--border);
-      width: 90%; 
-      max-width: 400px;
-      border-radius: 20px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      animation: slideDown 0.3s;
-    }
-
-    /* Minimal White Style for Email Modal */
-    .white-style {
-      background: #ffffff !important;
-      color: #333 !important;
-      border: 1px solid #eee !important;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1) !important;
-    }
-
-    [data-theme="dark"] .white-style {
-      background: #1f2937 !important;
-      color: #f3f4f6 !important;
-      border: 1px solid #374151 !important;
-    }
-
-    .email-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px 0;
-      border: 1px solid #e5e7eb;
-    }
-    
-    [data-theme="dark"] .email-container {
-      background: #374151;
-      border: 1px solid #4b5563;
-    }
-
-    #emailText {
-      font-size: 1.2rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .copy-btn {
-      background: none;
-      border: none;
-      color: var(--primary);
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .copy-btn:hover {
-      transform: scale(1.1);
-      color: var(--secondary);
-    }
-
-    .close-modal {
-      color: var(--muted);
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      position: absolute;
-      right: 20px;
-      top: 10px;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .close-modal:hover,
-    .close-modal:focus {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .qr-img {
-      width: 100%;
-      max-width: 280px;
-      height: auto;
-      border-radius: 10px;
-      margin: 20px 0;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0} 
-      to {opacity: 1}
-    }
-
-    @keyframes slideDown {
-      from {transform: translateY(-50px); opacity: 0;} 
-      to {transform: translateY(0); opacity: 1;}
-    }
-
-    .hero-banner h1, .hero-banner p, .social-icons {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero-banner {
-      animation: zoomEffect 20s infinite alternate;
-    }
-    
-    @keyframes zoomEffect {
-      0% { background-size: 100% 100%; }
-      100% { background-size: 110% 110%; }
-    }
-    
-    .hero-banner h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      margin: 0 0 16px 0;
-      letter-spacing: -1px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .hero-avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-avatar:hover {
-      transform: scale(1.2) rotate(5deg);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    }
-    
-    .hero-banner p {
-      font-size: 1.5rem;
-      font-weight: 300;
-      opacity: 0.9;
-      margin: 0 0 40px 0;
-      letter-spacing: 1px;
-    }
-    
-    .hero-subtitle {
-      font-size: 0.9rem;
-      font-weight: 400;
-      opacity: 0.8;
-      margin: 10px 0 20px 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-    }
-    
-    .social-icons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .social-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 20px;
-      transition: all 0.3s ease;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(4px);
-    }
-    
-    .social-btn:hover {
-      background: white;
-      color: #333;
-      transform: translateY(-3px);
-      border-color: white;
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .hero-banner h1 { font-size: 2.5rem; }
-      .hero-banner p { font-size: 1.1rem; }
-      .hero-subtitle { font-size: 0.75rem; }
-      .social-btn { width: 40px; height: 40px; font-size: 16px; }
-    }
-
-    @media (max-width: 860px) {
-      .hero-card { grid-template-columns: 1fr; }
-      .info-grid { grid-template-columns: 1fr 1fr; }
-      .row { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero-banner" id="home">
-    <!-- 请将你的头像图片命名为 avatar.jpg 并放在项目文件夹中 -->
-    <img src="images/avatar.jpg" alt="Avatar" class="hero-avatar">
-    <h1>Meet Myself.</h1>
-    <p class="hero-subtitle">05 | AI探索者 | AI知识库搭建 | 用户增长 | 社媒运营</p>
-    <p>Either stand out or get out.</p>
-    <div class="social-icons">
-        <!-- QQ -->
-        <a href="javascript:void(0)" class="social-btn" id="qqBtn" title="QQ: 1332542382">
-          <i class="fab fa-qq"></i>
-        </a>
-      <!-- WeChat -->
-        <a href="javascript:void(0)" class="social-btn" id="wechatBtn" title="WeChat: zzzzzhg1">
-          <i class="fab fa-weixin"></i>
-        </a>
-      <!-- Xiaohongshu (Using Book icon as substitute) -->
-      <a href="https://www.xiaohongshu.com/user/profile/662095d40000000003033534" class="social-btn" title="小红书：海哥AI不打烊" target="_blank">
-        <i class="fas fa-book-open"></i>
-      </a>
-      <!-- Zhihu -->
-      <a href="https://www.zhihu.com/people/bkxnxq" class="social-btn" title="知乎：海哥AI不打烊" target="_blank">
-        <i class="fab fa-zhihu"></i>
-      </a>
-      <!-- Email -->
-      <a href="javascript:void(0)" class="social-btn" id="emailBtn" title="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-  </header>
-
   <!-- Modal for QR Code -->
   <div id="qrModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h3>加我 QQ</h3>
-      <!-- 请将你的二维码图片保存为 qq-qr.png 并放在项目文件夹中 -->
       <img src="images/qq-qr.png" alt="QQ QR Code" class="qr-img">
       <p>扫一扫上面的二维码图案，加我QQ</p>
     </div>
@@ -778,7 +27,6 @@
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h3>加我微信</h3>
-      <!-- 请将你的微信二维码图片保存为 wechat-qr.png 并放在 images 文件夹中 -->
       <img src="images/wechat-qr.png" alt="WeChat QR Code" class="qr-img">
       <p>扫一扫上面的二维码图案，加我微信</p>
     </div>
@@ -806,185 +54,205 @@
         <a href="#basic">基础信息</a>
         <a href="#intern">实习经历</a>
         <a href="#projects">项目经历</a>
-        <a href="#skills">技能证书</a>
         <a href="#about">自我评价</a>
         <a href="#education">教育经历</a>
       </nav>
     </div>
   </header>
+
   <main class="container">
-    <section class="hero">
+    <section class="hero fade-up" id="basic">
       <div class="hero-card">
-        <div>
-          <h1 class="hero-title">张海根</h1>
-          <p class="hero-sub">AI / 运营 / 互联网</p>
-          <div class="info-grid">
-            <div class="info-item"><span>年龄</span><strong>20</strong></div>
-            <div class="info-item"><span>性别</span><strong>男</strong></div>
-            <div class="info-item"><span>学历</span><strong>本科</strong></div>
-            <div class="info-item"><span>手机</span><strong>18296926837</strong></div>
-            <div class="info-item"><span>邮箱</span><strong>1332542382@qq.com</strong></div>
-            <div class="info-item"><span>求职意向</span><strong>AI/运营/互联网</strong></div>
+        <!-- 顶部：头像+社交 | 姓名+基础信息 | 按钮 -->
+        <div class="hero-header">
+          <div class="hero-avatar-group">
+            <img src="images/avatar.jpg" alt="张海根" class="hero-avatar">
+            <h1 class="hero-title">张海根</h1>
+            <div class="social-icons-inline">
+              <a href="javascript:void(0)" class="social-btn-sm" id="qqBtn" title="QQ: 1332542382"><i class="fab fa-qq"></i></a>
+              <a href="javascript:void(0)" class="social-btn-sm" id="wechatBtn" title="WeChat: zzzzzhg1"><i class="fab fa-weixin"></i></a>
+              <a href="https://www.xiaohongshu.com/user/profile/662095d40000000003033534" class="social-btn-sm" title="小红书" target="_blank"><i class="fas fa-book-open"></i></a>
+              <a href="https://www.zhihu.com/people/bkxnxq" class="social-btn-sm" title="知乎" target="_blank"><i class="fab fa-zhihu"></i></a>
+              <a href="javascript:void(0)" class="social-btn-sm" id="emailBtn" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            
           </div>
-          <div class="cta" style="margin-top:16px;">
-            <a class="btn primary" href="#projects">查看项目</a>
-            <a class="btn" href="#skills">技能清单</a>
+          <div class="hero-header-center">
+            <div class="hero-intent-tag"><i class="fas fa-crosshairs"></i> 求职意向: AI / 运营 / 互联网</div>
+            <div class="hero-header-meta">
+              <div class="info-row"><i class="fas fa-calendar-alt info-icon"></i><span>年龄</span><strong>20</strong></div>
+              <div class="info-row"><i class="fas fa-user info-icon"></i><span>性别</span><strong>男</strong></div>
+              <div class="info-row"><i class="fas fa-graduation-cap info-icon"></i><span>学历</span><strong>本科</strong></div>
+              <div class="info-row"><i class="fas fa-phone-alt info-icon"></i><span>手机</span><strong>18296926837</strong></div>
+              <div class="info-row"><i class="fas fa-envelope info-icon"></i><span>邮箱</span><strong>1332542382@qq.com</strong></div>
+            </div>
+          </div>
+          <div class="hero-header-right">
+            <a class="btn primary" href="#projects"><i class="fas fa-rocket"></i> 查看项目</a>
+            <a class="btn" href="#intern"><i class="fas fa-briefcase"></i> 实习经历</a>
           </div>
         </div>
-        <div class="card">
-          <div class="title">亮点速览</div>
-          <div class="badges">
-            <span class="badge">公众号0-1冷启动</span>
-            <span class="badge">知识库长期榜一</span>
-            <span class="badge">品牌策划精英奖</span>
-            <span class="badge">数据驱动增长</span>
+        <!-- 下方两栏：亮点速览 + 技能证书 -->
+        <div class="hero-body">
+          <div class="hero-col">
+            <div class="col-title">亮点速览</div>
+            <div class="badges">
+              <span class="badge">公众号0-1冷启动</span>
+              <span class="badge">知识库长期榜一</span>
+              <span class="badge">品牌策划精英奖</span>
+              <span class="badge">数据驱动增长</span>
+            </div>
+            <ul class="bullets">
+              <li>从<strong>0-1</strong>搭建微信公众号，粉丝破<strong>2000+</strong>，单篇最高阅读<strong>1.6w+</strong></li>
+              <li>腾讯 ima 垂直知识库运营，人数突破<strong>3800+</strong>，最高3日涨粉<strong>500+</strong></li>
+              <li>品牌策划竞赛精英奖，带队完成近<strong>3万</strong>字商业计划书</li>
+              <li>熟练使用<strong>多类AI工具</strong>，提升内容生产效率与质量</li>
+            </ul>
+          </div>
+          <div class="hero-col">
+            <div class="col-title">技能证书</div>
+            <div class="col-subtitle">证书</div>
+            <div class="badges">
+              <span class="badge certificate-badge" data-cert="images/六级证书.jpg">大学英语六级</span>
+              <span class="badge certificate-badge" data-cert="images/影刀RPA初级证书.png">影刀初级RPA技能证书</span>
+            </div>
+            <div class="col-subtitle" style="margin-top:12px;">技能</div>
+            <div class="badges">
+              <span class="badge">AI工具</span>
+              <span class="badge">公众号编辑器</span>
+              <span class="badge">飞书多维表格</span>
+              <span class="badge">可画</span>
+              <span class="badge">稿定设计</span>
+              <span class="badge">AI生图</span>
+              <span class="badge">AI生视频</span>
+              <span class="badge">AI写作</span>
+              <span class="badge">数据分析</span>
+              <span class="badge">剪映</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intern" class="section fade-up">
+      <h2 class="section-title"><span class="dot"></span> 实习经历</h2>
+
+      <!-- 第一段实习经历 -->
+      <div class="intern-card primary fade-up">
+        <!-- 实习数据亮点 -->
+        <div class="data-highlights">
+          <div class="data-card">
+            <div class="data-icon"><i class="fas fa-book-open"></i></div>
+            <div class="data-number" data-target="30">0</div>
+            <div class="data-label">小红书笔记</div>
+          </div>
+          <div class="data-card">
+            <div class="data-icon"><i class="fab fa-tiktok"></i></div>
+            <div class="data-number" data-target="25">0</div>
+            <div class="data-label">抖音视频</div>
+          </div>
+          <div class="data-card">
+            <div class="data-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="data-number" data-target="10000" data-suffix="+">0</div>
+            <div class="data-label">自然涨粉</div>
+          </div>
+          <div class="data-card">
+            <div class="data-icon"><i class="fas fa-heart"></i></div>
+            <div class="data-number" data-target="622">0</div>
+            <div class="data-label">最高赞藏</div>
+          </div>
+          <div class="data-card">
+            <div class="data-icon"><i class="fas fa-eye"></i></div>
+            <div class="data-number" data-target="60000" data-suffix="+">0</div>
+            <div class="data-label">曝光量</div>
+          </div>
+        </div>
+
+        <div class="intern-detail">
+          <div class="intern-detail-header">
+            <div class="intern-company-info">
+              <div class="intern-company-name"><i class="fas fa-building"></i> 湖南映客互娱网络信息有限公司</div>
+              <div class="intern-role-tag">AI内容生态运营</div>
+            </div>
+            <div class="intern-time-tag"><i class="fas fa-calendar-alt"></i> 2026.01 - 至今</div>
           </div>
           <ul class="bullets">
-            <li>从<strong>0-1</strong>搭建微信公众号，粉丝破<strong>2000+</strong>，单篇最高阅读<strong>1.6w+</strong></li>
-            <li>腾讯 ima 垂直知识库运营，人数突破<strong>3800+</strong>，最高3日涨粉<strong>500+</strong></li>
-            <li>品牌策划竞赛精英奖，带队完成近<strong>3万</strong>字商业计划书</li>
-            <li>熟练使用<strong>多类AI工具</strong>，提升内容生产效率与质量</li>
+            <li><strong>新媒体运营：</strong>主要负责小红书、抖音矩阵账号的策划、内容运营及数据复盘，实习期间小红书累积产出笔记<strong>30</strong>篇，抖音<strong>25</strong>篇，累积自然涨粉近<strong>1w</strong>，小红书单篇笔记最高赞藏<strong>622</strong>，曝光量破<strong>6w</strong>，涨粉<strong>200+</strong></li>
+            <li><strong>内容策划：</strong>精准制定<strong>周度内容选题计划</strong>并结合平台规则与热点爆款趋势，通过评论区互动、私信提升用户粘性，内容多次进入平台推荐流量池，单篇平均阅读量提升约<strong>50%</strong></li>
+            <li><strong>数据分析：</strong>定期分析新媒体平台的数据，输出<strong>周度数据分析报告</strong>，根据数据反馈调整运营策略，提升运营效果</li>
+            <li><strong>AI运营策略：</strong>形成了一套内容生成的工作流体系，借助<strong>各类AI工具</strong>（如Claude、Gemini、ChatGPT）辅助完成小红书文案的撰写及视频脚本的生成，并借助<strong>扣子空间</strong>搭建小红书图文工作流，实现工作流程自动化，提高工作效率</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 第二段实习经历 -->
+      <div class="intern-card fade-up">
+        <div class="intern-detail" style="padding: 24px;">
+          <div class="intern-detail-header">
+            <div class="intern-company-info">
+              <div class="intern-company-name"><i class="fas fa-building"></i> 炫图人工智能科技有限公司</div>
+              <div class="intern-role-tag">内容运营</div>
+            </div>
+            <div class="intern-time-tag"><i class="fas fa-calendar-alt"></i> 2025.09 - 2025.12</div>
+          </div>
+          <ul class="bullets">
+            <li><strong>内容策划与运营：</strong>负责产品的<strong>内容运营与用户增长</strong>，结合热点独立策划内容选题、利用剪映制作产品相关视频并同步6大社交平台，以提升账号活跃度与用户粘性，累计产出近<strong>50</strong>条内容，单篇笔记实现涨粉<strong>100+</strong></li>
+            <li><strong>账号日常维护：</strong>通过<strong>多平台同步运营</strong>，负责内容发布、用户评论互动及舆情监测，<strong>熟悉各大社交媒体的调性</strong></li>
+            <li><strong>参与运营策略优化：</strong>积极参与<strong>每周团队复盘会议</strong>，分析内容数据表现，为产品迭代与内容创作提供<strong>优化建议</strong></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="intern" class="section">
-      <h2 class="section-title"><span class="dot"></span> 实习经历</h2>
-      
-      <!-- 第一段实习经历 -->
-      <div class="intern-card primary">
-        <!-- 实习数据亮点 -->
-        <div class="data-highlights">
-          <div class="data-card">
-            <div class="data-number" data-target="30">0</div>
-            <div class="data-label">小红书笔记</div>
-          </div>
-          <div class="data-card">
-            <div class="data-number" data-target="25">0</div>
-            <div class="data-label">抖音视频</div>
-          </div>
-          <div class="data-card">
-            <div class="data-number" data-target="10000" data-suffix="+">0</div>
-            <div class="data-label">自然涨粉</div>
-          </div>
-          <div class="data-card">
-            <div class="data-number" data-target="622">0</div>
-            <div class="data-label">最高赞藏</div>
-          </div>
-          <div class="data-card">
-            <div class="data-number" data-target="60000" data-suffix="+">0</div>
-            <div class="data-label">曝光量</div>
-          </div>
-        </div>
-        
-        <div class="card list">
-          <div class="row">
-            <div>
-              <div class="title">湖南映客互娱网络信息有限公司 · AI内容生态运营</div>
-              <div class="meta">2026.01 - 至今</div>
-            </div>
-            <div>
-              <ul class="bullets">
-                <li><strong>新媒体运营：</strong>主要负责小红书、抖音矩阵账号的策划、内容运营及数据复盘，实习期间小红书累积产出笔记<strong>30</strong>篇，抖音<strong>25</strong>篇，累积自然涨粉近<strong>1w</strong>，小红书单篇笔记最高赞藏<strong>622</strong>，曝光量破<strong>6w</strong>，涨粉<strong>200+</strong></li>
-                <li><strong>内容策划：</strong>精准制定<strong>周度内容选题计划</strong>并结合平台规则与热点爆款趋势，通过评论区互动、私信提升用户粘性，内容多次进入平台推荐流量池，单篇平均阅读量提升约<strong>50%</strong></li>
-                <li><strong>数据分析：</strong>定期分析新媒体平台的数据，输出<strong>周度数据分析报告</strong>，根据数据反馈调整运营策略，提升运营效果</li>
-                <li><strong>AI运营策略：</strong>形成了一套内容生成的工作流体系，借助<strong>各类AI工具</strong>（如Claude、Gemini、ChatGPT）辅助完成小红书文案的撰写及视频脚本的生成，并借助<strong>扣子空间</strong>搭建小红书图文工作流，实现工作流程自动化，提高工作效率</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 第二段实习经历 -->
-      <div class="intern-card">
-        <div class="card list">
-          <div class="row">
-            <div>
-              <div class="title">炫图人工智能科技有限公司 · 内容运营</div>
-              <div class="meta">2025.09 - 2025.12</div>
-            </div>
-            <div>
-              <ul class="bullets">
-                <li><strong>内容策划与运营：</strong>负责产品的<strong>内容运营与用户增长</strong>，结合热点独立策划内容选题、利用剪映制作产品相关视频并同步6大社交平台，以提升账号活跃度与用户粘性，累计产出近<strong>50</strong>条内容，单篇笔记实现涨粉<strong>100+</strong></li>
-                <li><strong>账号日常维护：</strong>通过<strong>多平台同步运营</strong>，负责内容发布、用户评论互动及舆情监测，<strong>熟悉各大社交媒体的调性</strong></li>
-                <li><strong>参与运营策略优化：</strong>积极参与<strong>每周团队复盘会议</strong>，分析内容数据表现，为产品迭代与内容创作提供<strong>优化建议</strong></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
+    <section id="projects" class="section fade-up">
       <h2 class="section-title"><span class="dot"></span> 项目经历</h2>
-      
-      <div class="project-card">
-        <div class="title">AI科技自媒体运营 · 微信公众号</div>
-        <div class="meta">2025.11 - 至今</div>
-        <div class="data-showcase">
-          <div class="project-image-container">
-            <img src="images/公众号爆款文章.jpg" alt="公众号爆款文章数据" class="project-image">
-          </div>
-        </div>
-        <ul class="bullets">
-          <li><strong>账号运营：</strong>从<strong>0-1</strong>独立运营【海哥AI不打烊】微信公众号，每周独立策划并撰写<strong>3-4</strong>篇原创推文（类型涵盖AI科普、AI工具与实战，和腾讯、百度、秘塔等进行AI产品推广的商务合作，打通变现闭环</li>
-          <li><strong>内容策划：</strong>独立负责账号的内容输出，包括选题策划、文章的排版发布、数据整理复盘</li>
-          <li><strong>对标拆解：</strong>借助<strong>飞书多维表格</strong>建立公众号选题库、账号对标库等，拆解爆款内容并进行模仿学习</li>
-          <li><strong>社群运营：</strong>通过公众号文章及ima知识库进行私域引流<strong>200+</strong>，独立运营近<strong>200人</strong>的AI学习交流群，拥抱AI技术发展，持续分享最新的AI信息，和用户交流AI使用心得</li>
-          <li><strong>收获成果：</strong>公众号粉丝从<strong>0</strong>增长至<strong>2000+</strong>，创作出两篇阅读量达<strong>1.6w+</strong>的爆款文章，单篇实现最高涨粉<strong>200+</strong></li>
-        </ul>
-        <a href="https://mp.weixin.qq.com/s/7cfrpb1uhilOiVCCM5rJmA" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i>
-          爆款文章1：保姆级教程！手把手教你从0-1使用NotebookLM这个学习神器
-        </a>
-        <a href="https://mp.weixin.qq.com/s/dpzoWzQ68yFtk1EP9R0E5w" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i>
-          爆款文章2：震惊！蚂蚁突然发布"灵光"，30秒竟然能生成一个应用？
-        </a>
-      </div>
-      
-      <div class="project-card">
-        <div class="title">AI知识库运营 · 腾讯ima知识库</div>
-        <div class="meta">2025.06 - 至今</div>
-        <div class="data-showcase">
-          <div class="project-image-container">
-            <img src="images/AI学习知识库.png" alt="AI知识库数据总览" class="project-image">
-          </div>
-        </div>
-        <ul class="bullets">
-          <li><strong>知识库运营：</strong>依托腾讯ima平台，从<strong>0-1</strong>独立搭建垂直领域的AI学习知识库，持续收录优质的AI信息资源</li>
-          <li><strong>差异化运营：</strong>分析学习对标知识库并打造<strong>差异化</strong>，将资料进行分类整理，提升了知识库的<strong>曝光度与用户的留存率</strong></li>
-          <li><strong>收获成果：</strong>累积收集<strong>2000+</strong>AI优质内容，知识库人数突破<strong>3800+</strong>，访问次数突破<strong>2.5w</strong>，实现最高<strong>3日涨粉500+</strong>，长期霸榜相关词条搜索中的榜一，并和秘塔AI知识库及百度知识库进行相关合作，受邀成为<strong>首批知识库创建者</strong></li>
-        </ul>
-      </div>
-    </section>
 
-    <section id="skills" class="section">
-      <h2 class="section-title"><span class="dot"></span> 技能证书</h2>
-      <div class="card">
-        <div class="title">证书</div>
-        <div class="badges" style="margin-bottom:10px;">
-          <span class="badge certificate-badge" data-cert="images/六级证书.jpg">大学英语六级</span>
-          <span class="badge certificate-badge" data-cert="images/影刀RPA初级证书.png">影刀初级RPA技能证书</span>
+      <div class="project-card fade-up">
+        <div class="project-two-col">
+          <div class="project-col-content">
+            <div class="project-card-title"><i class="fab fa-weixin"></i> AI科技自媒体运营 · 微信公众号</div>
+            <div class="project-card-meta"><i class="fas fa-calendar-alt"></i> 2025.11 - 至今</div>
+            <ul class="bullets">
+              <li><strong>账号运营：</strong>从<strong>0-1</strong>独立运营【海哥AI不打烊】微信公众号，每周独立策划并撰写<strong>3-4</strong>篇原创推文（类型涵盖AI科普、AI工具与实战，和腾讯、百度、秘塔等进行AI产品推广的商务合作，打通变现闭环</li>
+              <li><strong>内容策划：</strong>独立负责账号的内容输出，包括选题策划、文章的排版发布、数据整理复盘</li>
+              <li><strong>对标拆解：</strong>借助<strong>飞书多维表格</strong>建立公众号选题库、账号对标库等，拆解爆款内容并进行模仿学习</li>
+              <li><strong>社群运营：</strong>通过公众号文章及ima知识库进行私域引流<strong>200+</strong>，独立运营近<strong>200人</strong>的AI学习交流群，拥抱AI技术发展，持续分享最新的AI信息，和用户交流AI使用心得</li>
+              <li><strong>收获成果：</strong>公众号粉丝从<strong>0</strong>增长至<strong>2000+</strong>，创作出两篇阅读量达<strong>1.6w+</strong>的爆款文章，单篇实现最高涨粉<strong>200+</strong></li>
+            </ul>
+            <div class="project-links-row">
+              <a href="https://mp.weixin.qq.com/s/7cfrpb1uhilOiVCCM5rJmA" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> 爆款文章1：保姆级教程！手把手教你从0-1使用NotebookLM
+              </a>
+              <a href="https://mp.weixin.qq.com/s/dpzoWzQ68yFtk1EP9R0E5w" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> 爆款文章2：震惊！蚂蚁突然发布"灵光"，30秒能生成一个应用？
+              </a>
+            </div>
+          </div>
+          <div class="project-col-image">
+            <img src="images/公众号爆款文章.jpg" alt="公众号爆款文章数据" class="project-image-full">
+          </div>
         </div>
-        <div class="title">技能</div>
-        <div class="badges">
-          <span class="badge">AI工具</span>
-          <span class="badge">公众号编辑器</span>
-          <span class="badge">飞书多维表格</span>
-          <span class="badge">可画</span>
-          <span class="badge">稿定设计</span>
-          <span class="badge">AI生图</span>
-          <span class="badge">AI生视频</span>
-          <span class="badge">AI写作</span>
-          <span class="badge">数据分析</span>
-          <span class="badge">剪映</span>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-two-col">
+          <div class="project-col-content">
+            <div class="project-card-title"><i class="fas fa-brain"></i> AI知识库运营 · 腾讯ima知识库</div>
+            <div class="project-card-meta"><i class="fas fa-calendar-alt"></i> 2025.06 - 至今</div>
+            <ul class="bullets">
+              <li><strong>知识库运营：</strong>依托腾讯ima平台，从<strong>0-1</strong>独立搭建垂直领域的AI学习知识库，持续收录优质的AI信息资源</li>
+              <li><strong>差异化运营：</strong>分析学习对标知识库并打造<strong>差异化</strong>，将资料进行分类整理，提升了知识库的<strong>曝光度与用户的留存率</strong></li>
+              <li><strong>收获成果：</strong>累积收集<strong>2000+</strong>AI优质内容，知识库人数突破<strong>3800+</strong>，访问次数突破<strong>2.5w</strong>，实现最高<strong>3日涨粉500+</strong>，长期霸榜相关词条搜索中的榜一，并和秘塔AI知识库及百度知识库进行相关合作，受邀成为<strong>首批知识库创建者</strong></li>
+            </ul>
+          </div>
+          <div class="project-col-image">
+            <img src="images/AI学习知识库.png" alt="AI知识库数据总览" class="project-image-full">
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section fade-up">
       <h2 class="section-title"><span class="dot"></span> 自我评价</h2>
       <div class="card">
         <ul class="bullets">
@@ -996,7 +264,7 @@
       </div>
     </section>
 
-    <section id="education" class="section">
+    <section id="education" class="section fade-up">
       <h2 class="section-title"><span class="dot"></span> 教育经历</h2>
       <div class="card list">
         <div class="row">
@@ -1026,137 +294,5 @@
     </footer>
   </main>
 </body>
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      const id=a.getAttribute('href').slice(1);
-      const el=document.getElementById(id);
-      if(el){
-        e.preventDefault();
-        el.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    });
-  });
-
-  // Modal Logic
-  function setupModal(btnId, modalId) {
-    const modal = document.getElementById(modalId);
-    const btn = document.getElementById(btnId);
-    const span = modal.querySelector(".close-modal");
-
-    if (btn && modal && span) {
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-    }
-  }
-
-  setupModal("qqBtn", "qrModal");
-  setupModal("wechatBtn", "wechatModal");
-  setupModal("emailBtn", "emailModal");
-
-  // Copy Email Function
-  function copyEmail() {
-    const emailText = document.getElementById("emailText").innerText;
-    navigator.clipboard.writeText(emailText).then(() => {
-      const msg = document.getElementById("copyMsg");
-      msg.style.opacity = "1";
-      setTimeout(() => {
-        msg.style.opacity = "0";
-      }, 2000);
-    }).catch(err => {
-      console.error('Failed to copy: ', err);
-      alert('复制失败，请手动复制');
-    });
-  }
-
-  // Certificate Preview Functionality
-  const overlay = document.createElement('div');
-  overlay.className = 'certificate-overlay';
-  document.body.appendChild(overlay);
-  
-  document.querySelectorAll('.certificate-badge').forEach(badge => {
-    const certPath = badge.getAttribute('data-cert');
-    const img = document.createElement('img');
-    img.src = certPath;
-    img.className = 'certificate-preview';
-    img.alt = '证书预览';
-    document.body.appendChild(img);
-    
-    badge.addEventListener('mouseenter', () => {
-      overlay.classList.add('active');
-      img.style.opacity = '1';
-      img.style.visibility = 'visible';
-      img.style.transform = 'translate(-50%, -50%) scale(1)';
-    });
-    
-    badge.addEventListener('mouseleave', () => {
-      overlay.classList.remove('active');
-      img.style.opacity = '0';
-      img.style.visibility = 'hidden';
-      img.style.transform = 'translate(-50%, -50%) scale(0)';
-    });
-  });
-
-  // Data Number Animation
-  function animateNumbers() {
-    const numberElements = document.querySelectorAll('.data-number');
-    
-    numberElements.forEach(element => {
-      const target = parseInt(element.getAttribute('data-target'));
-      const suffix = element.getAttribute('data-suffix') || '';
-      let current = 0;
-      const increment = target / 50;
-      const duration = 2000;
-      const startTime = performance.now();
-      
-      function updateNumber(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // 使用缓动函数使动画更自然
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
-        current = Math.floor(target * easeProgress);
-        
-        element.textContent = current + suffix;
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateNumber);
-        } else {
-          element.textContent = target + suffix;
-        }
-      }
-      
-      requestAnimationFrame(updateNumber);
-    });
-  }
-  
-  // 使用Intersection Observer来检测元素是否进入视口
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateNumbers();
-        observer.disconnect(); // 只执行一次
-      }
-    });
-  }, {
-    threshold: 0.5
-  });
-  
-  // 观察数据高亮区域
-  const dataHighlights = document.querySelector('.data-highlights');
-  if (dataHighlights) {
-    observer.observe(dataHighlights);
-  }
-
-  window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-      event.target.style.display = "none";
-    }
-  }
-</script>
+<script src="main.js"></script>
 </html>
