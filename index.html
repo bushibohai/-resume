@@ -167,6 +167,7 @@
       display: grid;
       grid-template-columns: 1.5fr 2fr;
       gap: 16px;
+      align-items: start;
     }
     .meta {
       font-size: 14px;
@@ -174,6 +175,20 @@
     }
     .title {
       font-weight: 700;
+    }
+    
+    /* 实习经历标题样式 */
+    .intern-card .row .title {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    /* 确保左侧内容垂直居中 */
+    .intern-card .row > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 80px;
     }
     .badges {
       display: flex;
@@ -209,16 +224,266 @@
       padding-left: 18px;
     }
     .bullets li { margin: 6px 0; }
+    
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--bg);
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    
+    .project-card:hover {
+      transform: scale(1.03) translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .project-image-container {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .project-card:hover .project-image {
+      transform: scale(1.08);
+    }
+    
+    .data-showcase {
+      background: linear-gradient(135deg, var(--primary-weak) 0%, var(--bg) 100%);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      border: 1px solid var(--border);
+    }
+    
+    .data-showcase img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: var(--primary-weak);
+      transition: all 0.3s ease;
+    }
+    
+    .project-link:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .project-link i {
+      font-size: 14px;
+    }
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
     .footer {
-      margin: 36px 0 18px;
-      font-size: 13px;
+      margin: 48px 0 0;
+      padding: 40px 24px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+    }
+    
+    .footer-content {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .footer-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+    
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .footer-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    
+    .footer-quote {
+      font-size: 14px;
       color: var(--muted);
+      font-style: italic;
+    }
+    
+    .certificate-badge {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .certificate-preview {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      max-width: 80vw;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      border: 3px solid var(--border);
+      background: var(--bg);
+    }
+    
+    .certificate-badge:hover .certificate-preview {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    
+    .certificate-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .certificate-badge:hover ~ .certificate-overlay,
+    .certificate-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Data Highlights Section */
+    .data-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .data-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
       text-align: center;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .data-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .data-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    
+    .data-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .data-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      line-height: 1;
+      position: relative;
+    }
+    
+    .data-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    
+    /* Internship Cards */
+    .intern-card {
+      margin-bottom: 32px;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .intern-card.primary {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .intern-card.primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+    }
+    
+    .intern-card:not(.primary) {
+      padding: 0;
+    }
+    
+    .intern-card .card {
+      border-radius: 12px;
+    }
+    
+    .intern-card.primary .card {
+      border: none;
+      box-shadow: none;
+      background: transparent;
     }
     
     /* Dynamic Hero Section */
@@ -411,6 +676,16 @@
       letter-spacing: 1px;
     }
     
+    .hero-subtitle {
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.8;
+      margin: 10px 0 20px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    
     .social-icons {
       display: flex;
       gap: 20px;
@@ -444,6 +719,7 @@
     @media (max-width: 768px) {
       .hero-banner h1 { font-size: 2.5rem; }
       .hero-banner p { font-size: 1.1rem; }
+      .hero-subtitle { font-size: 0.75rem; }
       .social-btn { width: 40px; height: 40px; font-size: 16px; }
     }
 
@@ -460,6 +736,7 @@
     <!-- 请将你的头像图片命名为 avatar.jpg 并放在项目文件夹中 -->
     <img src="images/avatar.jpg" alt="Avatar" class="hero-avatar">
     <h1>Meet Myself.</h1>
+    <p class="hero-subtitle">05 | AI探索者 | AI知识库搭建 | 用户增长 | 社媒运营</p>
     <p>Either stand out or get out.</p>
     <div class="social-icons">
         <!-- QQ -->
@@ -527,11 +804,11 @@
       <div class="brand">Meet Myself.</div>
       <nav class="nav-links">
         <a href="#basic">基础信息</a>
-        <a href="#education">教育经历</a>
         <a href="#intern">实习经历</a>
         <a href="#projects">项目经历</a>
         <a href="#skills">技能证书</a>
         <a href="#about">自我评价</a>
+        <a href="#education">教育经历</a>
       </nav>
     </div>
   </header>
@@ -563,31 +840,159 @@
             <span class="badge">数据驱动增长</span>
           </div>
           <ul class="bullets">
-            <li>从<strong>0-1</strong>搭建微信公众号，粉丝破<strong>1000+</strong>，单篇最高阅读<strong>1.6w+</strong></li>
-            <li>腾讯 ima 垂直知识库运营，人数突破<strong>2000+</strong>，最高3日涨粉<strong>400+</strong></li>
+            <li>从<strong>0-1</strong>搭建微信公众号，粉丝破<strong>2000+</strong>，单篇最高阅读<strong>1.6w+</strong></li>
+            <li>腾讯 ima 垂直知识库运营，人数突破<strong>3800+</strong>，最高3日涨粉<strong>500+</strong></li>
             <li>品牌策划竞赛精英奖，带队完成近<strong>3万</strong>字商业计划书</li>
-            <li>熟练使用多类AI工具，提升内容生产效率与质量</li>
+            <li>熟练使用<strong>多类AI工具</strong>，提升内容生产效率与质量</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="basic" class="section">
-      <h2 class="section-title"><span class="dot"></span> 基础个人信息</h2>
-      <div class="card grid-2">
-        <div>
-          <div class="title">联系方式</div>
-          <ul class="bullets">
-            <li>手机：18296926837</li>
-            <li>邮箱：1332542382@qq.com</li>
-          </ul>
+    <section id="intern" class="section">
+      <h2 class="section-title"><span class="dot"></span> 实习经历</h2>
+      
+      <!-- 第一段实习经历 -->
+      <div class="intern-card primary">
+        <!-- 实习数据亮点 -->
+        <div class="data-highlights">
+          <div class="data-card">
+            <div class="data-number" data-target="30">0</div>
+            <div class="data-label">小红书笔记</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number" data-target="25">0</div>
+            <div class="data-label">抖音视频</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number" data-target="10000" data-suffix="+">0</div>
+            <div class="data-label">自然涨粉</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number" data-target="622">0</div>
+            <div class="data-label">最高赞藏</div>
+          </div>
+          <div class="data-card">
+            <div class="data-number" data-target="60000" data-suffix="+">0</div>
+            <div class="data-label">曝光量</div>
+          </div>
         </div>
-        <div>
-          <div class="title">求职方向</div>
-          <ul class="bullets">
-            <li>AI / 运营 / 互联网</li>
-          </ul>
+        
+        <div class="card list">
+          <div class="row">
+            <div>
+              <div class="title">湖南映客互娱网络信息有限公司 · AI内容生态运营</div>
+              <div class="meta">2026.01 - 至今</div>
+            </div>
+            <div>
+              <ul class="bullets">
+                <li><strong>新媒体运营：</strong>主要负责小红书、抖音矩阵账号的策划、内容运营及数据复盘，实习期间小红书累积产出笔记<strong>30</strong>篇，抖音<strong>25</strong>篇，累积自然涨粉近<strong>1w</strong>，小红书单篇笔记最高赞藏<strong>622</strong>，曝光量破<strong>6w</strong>，涨粉<strong>200+</strong></li>
+                <li><strong>内容策划：</strong>精准制定<strong>周度内容选题计划</strong>并结合平台规则与热点爆款趋势，通过评论区互动、私信提升用户粘性，内容多次进入平台推荐流量池，单篇平均阅读量提升约<strong>50%</strong></li>
+                <li><strong>数据分析：</strong>定期分析新媒体平台的数据，输出<strong>周度数据分析报告</strong>，根据数据反馈调整运营策略，提升运营效果</li>
+                <li><strong>AI运营策略：</strong>形成了一套内容生成的工作流体系，借助<strong>各类AI工具</strong>（如Claude、Gemini、ChatGPT）辅助完成小红书文案的撰写及视频脚本的生成，并借助<strong>扣子空间</strong>搭建小红书图文工作流，实现工作流程自动化，提高工作效率</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
+      
+      <!-- 第二段实习经历 -->
+      <div class="intern-card">
+        <div class="card list">
+          <div class="row">
+            <div>
+              <div class="title">炫图人工智能科技有限公司 · 内容运营</div>
+              <div class="meta">2025.09 - 2025.12</div>
+            </div>
+            <div>
+              <ul class="bullets">
+                <li><strong>内容策划与运营：</strong>负责产品的<strong>内容运营与用户增长</strong>，结合热点独立策划内容选题、利用剪映制作产品相关视频并同步6大社交平台，以提升账号活跃度与用户粘性，累计产出近<strong>50</strong>条内容，单篇笔记实现涨粉<strong>100+</strong></li>
+                <li><strong>账号日常维护：</strong>通过<strong>多平台同步运营</strong>，负责内容发布、用户评论互动及舆情监测，<strong>熟悉各大社交媒体的调性</strong></li>
+                <li><strong>参与运营策略优化：</strong>积极参与<strong>每周团队复盘会议</strong>，分析内容数据表现，为产品迭代与内容创作提供<strong>优化建议</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title"><span class="dot"></span> 项目经历</h2>
+      
+      <div class="project-card">
+        <div class="title">AI科技自媒体运营 · 微信公众号</div>
+        <div class="meta">2025.11 - 至今</div>
+        <div class="data-showcase">
+          <div class="project-image-container">
+            <img src="images/公众号爆款文章.jpg" alt="公众号爆款文章数据" class="project-image">
+          </div>
+        </div>
+        <ul class="bullets">
+          <li><strong>账号运营：</strong>从<strong>0-1</strong>独立运营【海哥AI不打烊】微信公众号，每周独立策划并撰写<strong>3-4</strong>篇原创推文（类型涵盖AI科普、AI工具与实战，和腾讯、百度、秘塔等进行AI产品推广的商务合作，打通变现闭环</li>
+          <li><strong>内容策划：</strong>独立负责账号的内容输出，包括选题策划、文章的排版发布、数据整理复盘</li>
+          <li><strong>对标拆解：</strong>借助<strong>飞书多维表格</strong>建立公众号选题库、账号对标库等，拆解爆款内容并进行模仿学习</li>
+          <li><strong>社群运营：</strong>通过公众号文章及ima知识库进行私域引流<strong>200+</strong>，独立运营近<strong>200人</strong>的AI学习交流群，拥抱AI技术发展，持续分享最新的AI信息，和用户交流AI使用心得</li>
+          <li><strong>收获成果：</strong>公众号粉丝从<strong>0</strong>增长至<strong>2000+</strong>，创作出两篇阅读量达<strong>1.6w+</strong>的爆款文章，单篇实现最高涨粉<strong>200+</strong></li>
+        </ul>
+        <a href="https://mp.weixin.qq.com/s/7cfrpb1uhilOiVCCM5rJmA" target="_blank" class="project-link">
+          <i class="fas fa-external-link-alt"></i>
+          爆款文章1：保姆级教程！手把手教你从0-1使用NotebookLM这个学习神器
+        </a>
+        <a href="https://mp.weixin.qq.com/s/dpzoWzQ68yFtk1EP9R0E5w" target="_blank" class="project-link">
+          <i class="fas fa-external-link-alt"></i>
+          爆款文章2：震惊！蚂蚁突然发布"灵光"，30秒竟然能生成一个应用？
+        </a>
+      </div>
+      
+      <div class="project-card">
+        <div class="title">AI知识库运营 · 腾讯ima知识库</div>
+        <div class="meta">2025.06 - 至今</div>
+        <div class="data-showcase">
+          <div class="project-image-container">
+            <img src="images/AI学习知识库.png" alt="AI知识库数据总览" class="project-image">
+          </div>
+        </div>
+        <ul class="bullets">
+          <li><strong>知识库运营：</strong>依托腾讯ima平台，从<strong>0-1</strong>独立搭建垂直领域的AI学习知识库，持续收录优质的AI信息资源</li>
+          <li><strong>差异化运营：</strong>分析学习对标知识库并打造<strong>差异化</strong>，将资料进行分类整理，提升了知识库的<strong>曝光度与用户的留存率</strong></li>
+          <li><strong>收获成果：</strong>累积收集<strong>2000+</strong>AI优质内容，知识库人数突破<strong>3800+</strong>，访问次数突破<strong>2.5w</strong>，实现最高<strong>3日涨粉500+</strong>，长期霸榜相关词条搜索中的榜一，并和秘塔AI知识库及百度知识库进行相关合作，受邀成为<strong>首批知识库创建者</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title"><span class="dot"></span> 技能证书</h2>
+      <div class="card">
+        <div class="title">证书</div>
+        <div class="badges" style="margin-bottom:10px;">
+          <span class="badge certificate-badge" data-cert="images/六级证书.jpg">大学英语六级</span>
+          <span class="badge certificate-badge" data-cert="images/影刀RPA初级证书.png">影刀初级RPA技能证书</span>
+        </div>
+        <div class="title">技能</div>
+        <div class="badges">
+          <span class="badge">AI工具</span>
+          <span class="badge">公众号编辑器</span>
+          <span class="badge">飞书多维表格</span>
+          <span class="badge">可画</span>
+          <span class="badge">稿定设计</span>
+          <span class="badge">AI生图</span>
+          <span class="badge">AI生视频</span>
+          <span class="badge">AI写作</span>
+          <span class="badge">数据分析</span>
+          <span class="badge">剪映</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title"><span class="dot"></span> 自我评价</h2>
+      <div class="card">
+        <ul class="bullets">
+          <li><strong>0-1全栈运营：</strong>具备公众号及小红书账号从0到1搭建与冷启动经验，具备<strong>极强的落地执行力</strong></li>
+          <li><strong>产品化思维：</strong>通过<strong>SOP与结构化整理</strong>将碎片化信息转化为高价值内容产品，打造搜索排名<strong>Top1</strong>的标杆案例</li>
+          <li><strong>创新导向：</strong>持续探索<strong>AI技术</strong>在内容创作和运营中的应用，提升工作效率和成果质量</li>
+          <li><strong>AI工具赋能：</strong>熟练掌握<strong>Prompt工程及各类AI工具</strong>，能应用到内容生产当中，显著提升运营效率与内容质量</li>
+        </ul>
       </div>
     </section>
 
@@ -610,110 +1015,14 @@
       </div>
     </section>
 
-    <section id="intern" class="section">
-      <h2 class="section-title"><span class="dot"></span> 实习经历</h2>
-      <div class="card list">
-        <div class="row">
-          <div>
-            <div class="title">炫图人工智能科技有限公司 · 内容运营</div>
-            <div class="meta">2025.09 - 2025.12</div>
-          </div>
-          <div>
-            <ul class="bullets">
-              <li><strong>内容策划与运营：</strong>结合热点独立选题，制作视频并同步六大平台，累计产出近<strong>50</strong>条内容，单篇涨粉<strong>100+</strong></li>
-              <li><strong>账号日常维护：</strong>多平台运营，负责发布与互动及舆情监测，熟悉平台调性</li>
-              <li><strong>参与策略优化：</strong>参与每周复盘，分析数据表现，为迭代与创作提供建议</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <h2 class="section-title"><span class="dot"></span> 项目经历</h2>
-      <div class="card list">
-        <div class="row">
-          <div>
-            <div class="title">全国高校精英挑战赛品牌策划竞赛 · 组长 · 精英奖</div>
-            <div class="meta">2024.12 - 2025.06</div>
-          </div>
-          <div>
-            <ul class="bullets">
-              <li><strong>项目背景：</strong>以差异化与年轻化运营拓展品牌增量市场</li>
-              <li><strong>竞品与用户分析：</strong>用SWOT模型分析行业格局，构建用户画像</li>
-              <li><strong>产品定位与策划：</strong>重塑甜酒为三大场景化产品矩阵，推动视觉迭代</li>
-              <li><strong>最终成果：</strong>完成近<strong>3万</strong>字商业计划书与答辩PPT，获精英奖</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <div class="title">AI科技自媒体运营 · 微信公众号「海哥AI不打烊」</div>
-            <div class="meta">2025.09 - 至今</div>
-          </div>
-          <div>
-            <ul class="bullets">
-              <li><strong>账号运营：</strong>每周策划并撰写<strong>4-5</strong>篇原创推文，粉丝突破<strong>500+</strong>，后期破<strong>1000+</strong></li>
-              <li><strong>内容策划：</strong>负责选题、排版发布与数据复盘，类型涵盖科普、工具实战、学习分享</li>
-              <li><strong>对标拆解：</strong>建立选题库与对标库，拆解爆款并模仿学习</li>
-              <li><strong>收获成果：</strong>单篇最高阅读量<strong>1.6w+</strong>，单篇最高涨粉<strong>100+</strong></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <div class="title">AI知识库运营 · 腾讯 ima 知识库</div>
-            <div class="meta">2025.06 - 至今</div>
-          </div>
-          <div>
-            <ul class="bullets">
-              <li><strong></strong>知识库运营：</strong>从0-1搭建垂直领域AI学习知识库，持续收录优质资源</li>
-              <li><strong>差异化运营：</strong>分类整理与结构化呈现，提升曝光与留存</li>
-              <li><strong>收获成果：</strong>累计收集<strong>2000+</strong>内容，人数突破<strong>2000+</strong>，最高3日涨粉<strong>400+</strong>，长期霸榜搜索榜一</li>
-              <li><strong>平台认可：</strong>成为百度首批特邀知识库创建者，获得优先展示权</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <h2 class="section-title"><span class="dot"></span> 技能证书</h2>
-      <div class="card">
-        <div class="title">证书</div>
-        <div class="badges" style="margin-bottom:10px;">
-          <span class="badge">大学英语六级</span>
-          <span class="badge">影刀初级PRA技能证书</span>
-        </div>
-        <div class="title">技能</div>
-        <div class="badges">
-          <span class="badge">剪映</span>
-          <span class="badge">Midjourney</span>
-          <span class="badge">可画</span>
-          <span class="badge">AI写文案</span>
-          <span class="badge">AI选题</span>
-          <span class="badge">AI生图</span>
-          <span class="badge">AI数据分析</span>
-          <span class="badge">Python自动化</span>
-          <span class="badge">影刀PRA自动化</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <h2 class="section-title"><span class="dot"></span> 自我评价</h2>
-      <div class="card">
-        <ul class="bullets">
-          <li><strong>0-1全栈运营：</strong>具备公众号与知识库冷启动经验，执行力强</li>
-          <li><strong>产品化思维：</strong>以SOP与结构化将碎片信息转化为高价值内容产品</li>
-          <li><strong>数据驱动增长：</strong>敏锐的数据分析意识，善用复盘优化策略</li>
-          <li><strong>AI工具赋能：</strong>熟练掌握Prompt工程与多类AI工具，显著提升效率</li>
-        </ul>
-      </div>
-    </section>
-
     <footer class="footer">
-      © 2025 张海根 · 个人简历网站
+      <div class="footer-content">
+        <img src="images/avatar.jpg" alt="Avatar" class="footer-avatar">
+        <div class="footer-info">
+          <div class="footer-name">Meet Myself.</div>
+          <div class="footer-quote">"我上班的时候不困"</div>
+        </div>
+      </div>
     </footer>
   </main>
 </body>
@@ -763,6 +1072,85 @@
       console.error('Failed to copy: ', err);
       alert('复制失败，请手动复制');
     });
+  }
+
+  // Certificate Preview Functionality
+  const overlay = document.createElement('div');
+  overlay.className = 'certificate-overlay';
+  document.body.appendChild(overlay);
+  
+  document.querySelectorAll('.certificate-badge').forEach(badge => {
+    const certPath = badge.getAttribute('data-cert');
+    const img = document.createElement('img');
+    img.src = certPath;
+    img.className = 'certificate-preview';
+    img.alt = '证书预览';
+    document.body.appendChild(img);
+    
+    badge.addEventListener('mouseenter', () => {
+      overlay.classList.add('active');
+      img.style.opacity = '1';
+      img.style.visibility = 'visible';
+      img.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+    
+    badge.addEventListener('mouseleave', () => {
+      overlay.classList.remove('active');
+      img.style.opacity = '0';
+      img.style.visibility = 'hidden';
+      img.style.transform = 'translate(-50%, -50%) scale(0)';
+    });
+  });
+
+  // Data Number Animation
+  function animateNumbers() {
+    const numberElements = document.querySelectorAll('.data-number');
+    
+    numberElements.forEach(element => {
+      const target = parseInt(element.getAttribute('data-target'));
+      const suffix = element.getAttribute('data-suffix') || '';
+      let current = 0;
+      const increment = target / 50;
+      const duration = 2000;
+      const startTime = performance.now();
+      
+      function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // 使用缓动函数使动画更自然
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        current = Math.floor(target * easeProgress);
+        
+        element.textContent = current + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        } else {
+          element.textContent = target + suffix;
+        }
+      }
+      
+      requestAnimationFrame(updateNumber);
+    });
+  }
+  
+  // 使用Intersection Observer来检测元素是否进入视口
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateNumbers();
+        observer.disconnect(); // 只执行一次
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+  
+  // 观察数据高亮区域
+  const dataHighlights = document.querySelector('.data-highlights');
+  if (dataHighlights) {
+    observer.observe(dataHighlights);
   }
 
   window.onclick = function(event) {
